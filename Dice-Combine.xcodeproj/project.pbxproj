@@ -10,9 +10,10 @@
 		12B546702881C83C00BB9672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B5466F2881C83C00BB9672 /* AppDelegate.swift */; };
 		12B546722881C83C00BB9672 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B546712881C83C00BB9672 /* SceneDelegate.swift */; };
 		12B546742881C83C00BB9672 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B546732881C83C00BB9672 /* ViewController.swift */; };
-		12B546772881C83C00BB9672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B546752881C83C00BB9672 /* Main.storyboard */; };
 		12B546792881C83D00BB9672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12B546782881C83D00BB9672 /* Assets.xcassets */; };
 		12B5467C2881C83D00BB9672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B5467A2881C83D00BB9672 /* LaunchScreen.storyboard */; };
+		12B546842881D83000BB9672 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B546832881D83000BB9672 /* BigButton.swift */; };
+		12B546862881D87C00BB9672 /* DiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B546852881D87C00BB9672 /* DiceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		12B5466F2881C83C00BB9672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12B546712881C83C00BB9672 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		12B546732881C83C00BB9672 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		12B546762881C83C00BB9672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		12B546782881C83D00BB9672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12B5467B2881C83D00BB9672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12B5467D2881C83D00BB9672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12B546832881D83000BB9672 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
+		12B546852881D87C00BB9672 /* DiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +61,8 @@
 				12B5466F2881C83C00BB9672 /* AppDelegate.swift */,
 				12B546712881C83C00BB9672 /* SceneDelegate.swift */,
 				12B546732881C83C00BB9672 /* ViewController.swift */,
-				12B546752881C83C00BB9672 /* Main.storyboard */,
+				12B546852881D87C00BB9672 /* DiceViewModel.swift */,
+				12B546832881D83000BB9672 /* BigButton.swift */,
 				12B546782881C83D00BB9672 /* Assets.xcassets */,
 				12B5467A2881C83D00BB9672 /* LaunchScreen.storyboard */,
 				12B5467D2881C83D00BB9672 /* Info.plist */,
@@ -127,7 +130,6 @@
 			files = (
 				12B5467C2881C83D00BB9672 /* LaunchScreen.storyboard in Resources */,
 				12B546792881C83D00BB9672 /* Assets.xcassets in Resources */,
-				12B546772881C83C00BB9672 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B546842881D83000BB9672 /* BigButton.swift in Sources */,
+				12B546862881D87C00BB9672 /* DiceViewModel.swift in Sources */,
 				12B546742881C83C00BB9672 /* ViewController.swift in Sources */,
 				12B546702881C83C00BB9672 /* AppDelegate.swift in Sources */,
 				12B546722881C83C00BB9672 /* SceneDelegate.swift in Sources */,
@@ -147,14 +151,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		12B546752881C83C00BB9672 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				12B546762881C83C00BB9672 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		12B5467A2881C83D00BB9672 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +288,6 @@
 				INFOPLIST_FILE = "Dice-Combine/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +315,6 @@
 				INFOPLIST_FILE = "Dice-Combine/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
