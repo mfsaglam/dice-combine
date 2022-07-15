@@ -19,8 +19,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        configureDiceImage()
-
     }
     
     @objc func rollDiceTapped() {
@@ -31,8 +29,14 @@ class ViewController: UIViewController {
         view.addSubview(diceImage)
         view.addSubview(rollDiceButton)
         
+        view.backgroundColor = .systemBackground
+        
         diceImage.image = UIImage(named: "dice-four")
         diceImage.tintColor = .systemOrange
+        diceImage.layer.shadowColor = UIColor.black.cgColor
+        diceImage.layer.shadowOpacity = 0.25
+        diceImage.layer.shadowRadius = 2
+        diceImage.layer.shadowOffset = .zero
         diceImage.translatesAutoresizingMaskIntoConstraints = false
         
         rollDiceButton.setTitle("Roll Dice", for: .normal)
@@ -50,12 +54,4 @@ class ViewController: UIViewController {
             rollDiceButton.heightAnchor.constraint(equalToConstant: 52)
         ])
     }
-    
-    private func configureDiceImage() {
-        diceImage.layer.shadowColor = UIColor.black.cgColor
-        diceImage.layer.shadowOpacity = 0.25
-        diceImage.layer.shadowRadius = 2
-        diceImage.layer.shadowOffset = .zero
-    }
 }
-
