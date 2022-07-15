@@ -31,6 +31,12 @@ class ViewController: UIViewController {
             .map{ $0 as UIImage? }
             .assign(to: \.image, on: diceImage)
             .store(in: &cancellables)
+        
+        viewModel.$isRolling
+            .map { !$0 }
+            .assign(to: \.isEnabled, on: rollDiceButton)
+            .store(in: &cancellables)
+        
     }
     
     private func configureUI() {
