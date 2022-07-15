@@ -37,6 +37,15 @@ class ViewController: UIViewController {
             .assign(to: \.isEnabled, on: rollDiceButton)
             .store(in: &cancellables)
         
+        viewModel.$isRolling
+            .sink { [weak self] isRolling in
+                guard let self = self else { return }
+                UIView.animate(withDuration: 0.5) {
+                    self.diceImage.alpha = isRolling ? 0.5 : 1.0
+                    self.diceImage.transform = isRolling ? CGAffineTransform(scaleX: 0.5, y: 0.5) : CGAffineTransform.identity
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private func configureUI() {
