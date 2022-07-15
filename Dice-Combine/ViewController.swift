@@ -19,10 +19,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureSubscriptions()
     }
     
     @objc func rollDiceTapped() {
         // roll dice
+    }
+    
+    private func configureSubscriptions() {
+        viewModel.$diceImage
+            .map{ $0 as UIImage? }
+            .assign(to: \.image, on: diceImage)
+            .store(in: &cancellables)
     }
     
     private func configureUI() {
