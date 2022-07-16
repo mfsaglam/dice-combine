@@ -18,6 +18,19 @@ class DiceViewModel {
         case rolledOffTable
     }
     
+    private func roll() -> AnyPublisher<Int, DiceError> {
+        Future { promise in
+            if Int.random(in: 1...4) == 1 {
+                promise(.failure(DiceError.rolledOffTable))
+            } else {
+                let value = Int.random(in: 1...6)
+                promise(.success(value))
+            }
+        }
+        .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+        .eraseToAnyPublisher()
+    }
+    
     func rollDice() {
         fatalError("Not Implemented")
     }
