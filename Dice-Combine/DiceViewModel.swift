@@ -38,9 +38,9 @@ class DiceViewModel {
             }
             .assign(to: &$diceValue)
         
-//        $diceValue
-//            .map { diceImage(for: $0) }
-//            .assign(to: &$diceImage)
+        $diceValue
+            .map { [unowned self] in diceImage(for: $0) }
+            .assign(to: &$diceImage)
     }
     
     private func roll() -> AnyPublisher<Int, DiceError> {
