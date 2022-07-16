@@ -14,8 +14,29 @@ class DiceViewModel {
     var isRolling = false
     var diceImage: UIImage = unknownDiceImage
     
+    @Published private var diceValue: Int?
+    
     enum DiceError: Error {
         case rolledOffTable
+    }
+    
+    private var rollSubject = PassthroughSubject<Void, Never>()
+    
+    init() {
+        rollSubject
+            .flatMap { [unowned self] in
+                roll()
+                    .map { $0 as Int? }
+                    .catch { error -> Just<Int?> in
+                        print("error: \(error)")
+                        return Just(nil)
+                    }
+            }
+            .assign(to: &$diceValue)
+        
+//        $diceValue
+//            .map { diceImage(for: $0) }
+//            .assign(to: &$diceImage)
     }
     
     private func roll() -> AnyPublisher<Int, DiceError> {
@@ -32,10 +53,10 @@ class DiceViewModel {
     }
     
     func rollDice() {
-        fatalError("Not Implemented")
+        rollSubject.send()
     }
     
-    private func diceImage(for value: Int) -> UIImage {
+    private func diceImage(for value: Int?) -> UIImage {
         switch value {
         case 1: return UIImage(named: "dice-one")!
         case 2: return UIImage(named: "dice-two")!
