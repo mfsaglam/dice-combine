@@ -46,6 +46,19 @@ class ViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        
+        viewModel.$error
+            .compactMap { $0 }
+            .sink { [weak self] error in
+                guard let self = self else { return }
+                let alert = UIAlertController(title: "Dice Error", message: "\(error)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
+                alert.addAction(UIAlertAction(title: "Reroll", style: .default, handler: { _ in
+                    self.rollDiceTapped()
+                }))
+                self.present(alert, animated: true)
+            }
+            .store(in: &cancellables)
     }
     
     private func configureUI() {
