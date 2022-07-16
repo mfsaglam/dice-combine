@@ -20,6 +20,9 @@ class DiceViewModel {
     @Published
     private var diceValue: Int?
     
+    @Published
+    var error: DiceError?
+    
     enum DiceError: Error {
         case rolledOffTable
     }
@@ -32,6 +35,7 @@ class DiceViewModel {
                 roll()
                     .handleEvents(
                         receiveSubscription: { [unowned self] _ in
+                            error = nil
                             isRolling = true
                         }, receiveCompletion: { [unowned self] _ in
                             isRolling = false
@@ -41,6 +45,7 @@ class DiceViewModel {
                     .map { $0 as Int? }
                     .catch { error -> Just<Int?> in
                         print("error: \(error)")
+                        self.error = error
                         return Just(nil)
                     }
             }
