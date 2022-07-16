@@ -17,7 +17,8 @@ class DiceViewModel {
     @Published
     var diceImage: UIImage = unknownDiceImage
     
-    @Published private var diceValue: Int?
+    @Published
+    private var diceValue: Int?
     
     enum DiceError: Error {
         case rolledOffTable
