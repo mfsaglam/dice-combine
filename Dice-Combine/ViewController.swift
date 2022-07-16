@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @objc func rollDiceTapped() {
-        // roll dice
+        viewModel.rollDice()
     }
     
     private func configureSubscriptions() {
