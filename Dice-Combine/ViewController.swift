@@ -39,7 +39,10 @@ class ViewController: UIViewController {
         
         viewModel.$isRolling
             .sink { [unowned self] isRolling in
-                diceImage.alpha = isRolling ? 0.5 : 1
+                UIView.animate(withDuration: 0.5) { [unowned self] in
+                    diceImage.alpha = isRolling ? 0.5 : 1
+                    diceImage.transform = isRolling ? CGAffineTransform(scaleX: 0.5, y: 0.5) : CGAffineTransform.identity
+                }
             }
             .store(in: &cancellables)
     }
