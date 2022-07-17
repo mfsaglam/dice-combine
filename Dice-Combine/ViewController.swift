@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
     
     @objc func rollDiceTapped() {
-        // roll dice
+        viewModel.rollDice()
     }
     
     private func configureSubscriptions() {
@@ -33,9 +33,8 @@ class ViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel.$isRolling
-            .sink { [unowned self] isRolling in
-                rollDiceButton.isEnabled = !isRolling
-            }
+            .map { !$0 }
+            .assign(to: \.isEnabled, on: rollDiceButton)
             .store(in: &cancellables)
         
         viewModel.$isRolling
