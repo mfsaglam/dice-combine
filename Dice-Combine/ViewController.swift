@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         viewModel.$isRolling
             .sink { [unowned self] isRolling in
-                diceImage.layer.opacity = isRolling ? 0.5 : 1
+                diceImage.alpha = isRolling ? 0.5 : 1
             }
             .store(in: &cancellables)
     }
