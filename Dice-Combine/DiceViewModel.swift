@@ -21,6 +21,8 @@ class DiceViewModel {
         case rolledOffTable
     }
     
+    private var triggerRollSubject = PassthroughSubject<Void, Never>()
+    
     private func roll() -> AnyPublisher<Int, DiceError> {
         Future { promise in
             if Int.random(in: 1...4) == 1 {
@@ -35,7 +37,7 @@ class DiceViewModel {
     }
     
     func rollDice() {
-        fatalError("Not Implemented")
+        triggerRollSubject.send()
     }
     
     private func diceImage(for value: Int) -> UIImage {
